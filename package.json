@@ -1,0 +1,23 @@
+{
+  "name": "sadhan-cli",
+  "version": "1.2.0",
+  "description": "custom cli tool",
+  "main": "cli.js",
+  "bin": {
+    "sadhan-cli": "cli.js"
+  },
+  "scripts": {
+    "test": "node cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "sadhan-cli"
+  ],
+  "author": "sadhan",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
