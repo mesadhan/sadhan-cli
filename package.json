@@ -1,13 +1,23 @@
 {
-  "name": "sadhan-cli",
-  "version": "1.2.0",
-  "description": "custom cli tool",
-  "main": "cli.js",
-  "bin": {
-    "sadhan-cli": "cli.js"
-  },
+  "name": "Sadhan-CLI",
+  "version": "1.0.0",
+  "description": "Node Custom CLI Tool for Build Automation",
+  "main": "index.js",
   "scripts": {
-    "test": "node cli"
+    "test": "node index",
+    "main": "node index",
+	"start": "node index.js"
+  },
+  "author": "sadhan",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.3",
+    "inquirer": "^6.3.1",
+    "shelljs": "^0.8.3"
+  },
+  "bin": {
+    "sadhan-cli": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -15,9 +25,5 @@
   },
   "keywords": [
     "sadhan-cli"
-  ],
-  "author": "sadhan",
-  "license": "MIT",
-  "dependencies": {
-  }
+  ]
 }
