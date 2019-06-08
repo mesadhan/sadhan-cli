@@ -1,2 +1,2 @@
 # sadhan-cli
-Custom Node CLI Tool
+Custom Node Js CLI Tool
