@@ -43,7 +43,8 @@ const askQuestions = () => {
 
 // create file
 const createFile = (filename, extension) => {
-  const filePath = `${process.cwd()}/${filename}.${extension}`
+
+  const filePath = `${process.cwd()}/src/${filename}.${extension}`
   shell.touch(filePath);
   return filePath;
 };
@@ -55,6 +56,22 @@ const success = (filepath) => {
     chalk.white.bgGreen.bold(`Done! File created at ${filepath}`)
   );
 };
+
+
+
+// copy initial files
+const initalTemplate = () => {
+
+  const inputPath = `${process.cwd()}/boilerplate`
+  const ouputPath = `${process.cwd()}/src`
+
+
+  shell.cp('-R', inputPath, ouputPath);
+  console.log(
+      chalk.white.bgGreen.bold(`Template Initialized!`)
+  );
+};
+
 
 
 const main = async () => {
@@ -73,6 +90,9 @@ const main = async () => {
 
    // create the file
   const filePath = createFile(FILENAME, EXTENSION);
+
+  // copy file into src dir
+  const initalTemplatePath = initalTemplate(FILENAME, EXTENSION);
 
   // show success message
   success(filePath);
