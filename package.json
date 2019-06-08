@@ -1,12 +1,12 @@
 {
-  "name": "Sadhan-CLI",
-  "version": "1.0.0",
+  "name": "sadhan-cli",
+  "version": "1.2.0",
   "description": "Node Custom CLI Tool for Build Automation",
   "main": "index.js",
   "scripts": {
     "test": "node index",
     "main": "node index",
-	"start": "node index.js"
+    "start": "node index.js"
   },
   "author": "sadhan",
   "license": "MIT",
