@@ -1,9 +1,23 @@
 #!/usr/bin/env node
 
+const shell = require("shelljs");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const figlet = require("figlet");
-const shell = require("shelljs");
+
+
+// checkout front
+const init = () => {
+  console.log(
+      chalk.red(
+          figlet.textSync("Sadhan CLI", {
+            font: "Standard",
+            horizontalLayout: "default",
+            verticalLayout: "default"
+          })
+      )
+  );
+}
 
 
 const askQuestions = () => {
@@ -11,13 +25,13 @@ const askQuestions = () => {
     {
       name: "FILENAME",
       type: "input",
-      message: "What is the name of the file without extension?"
+      message: "What is the name of the file without extension? (Filename:-)"
     },
     {
       type: "list",
       name: "EXTENSION",
       message: "What is the file extension?",
-      choices: [".rb", ".js", ".php", ".css"],
+      choices: [".html", ".css", ".js", ".php"],
       filter: function(val) {
         return val.split(".")[1];
       }
@@ -26,39 +40,37 @@ const askQuestions = () => {
   return inquirer.prompt(questions);
 };
 
-const init = () => {
-  console.log(
-    chalk.red(
-      figlet.textSync("Sadhan CLI", {
-        font: "Standard",
-        horizontalLayout: "default",
-        verticalLayout: "default"
-      })
-    )
-  );
-}
 
+// create file
 const createFile = (filename, extension) => {
   const filePath = `${process.cwd()}/${filename}.${extension}`
   shell.touch(filePath);
   return filePath;
 };
 
+
+// show success message
 const success = (filepath) => {
   console.log(
     chalk.white.bgGreen.bold(`Done! File created at ${filepath}`)
   );
 };
 
-const run = async () => {
-  // show script introduction
+
+const main = async () => {
+
+  // gretting init time
   init();
+
 
   // ask questions
   const answers = await askQuestions();
   const { FILENAME, EXTENSION } = answers;
-  
-  
+
+  console.log(FILENAME)
+  console.log(EXTENSION)
+
+
    // create the file
   const filePath = createFile(FILENAME, EXTENSION);
 
@@ -66,4 +78,4 @@ const run = async () => {
   success(filePath);
 };
 
-run();
+main();
